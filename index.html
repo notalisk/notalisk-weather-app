@@ -15,44 +15,64 @@
             <!-- Search bar -->
             <div class="row align-items-center justify-content-center mt-5 mb-5">
                 <form class="d-flex col-6">
-                    <input class="form-control me-2" type="search" placeholder="Search for a city" aria-label="Search">
-                    <button class="btn btn-outline-primary" type="submit">Search</button>
+                    <div class="dropdown me-2">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            Recent
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <!-- <li><a class="dropdown-item"></a></li> -->
+                        </ul>
+                    </div>
+                    <input class="form-control me-2" type="search" placeholder="Search for a city" aria-label="Search" id="city-search">
+                    <button class="btn btn-outline-primary" type="button" id="search-btn">Search</button>
                 </form>
             </div>
 
             <!-- Today's weather -->
             <div class="row visually-hidden">
                 <div class="col-12">
-                    <div class="card">
-                        <h3 id="date-1"></h3>
+                    <div class="card" id="date-0">
+                        <h3></h3>
                     </div>
                 </div>
             </div>
 
-            <!-- Weather for next 4 days -->
+            <!-- Weather for next 5 days -->
             <div class="row visually-hidden">
                 <div class="col-3">
-                    <div class="card">
-                        <h4 id="date-2"></h4>
+                    <div class="card" id="date-1">
+                        <h4></h4>
                     </div>
                 </div>
                 <div class="col-3">
-                    <div class="card">
-                        <h4 id="date-3"></h4>
+                    <div class="card" id="date-2">
+                        <h4></h4>
                     </div>
                 </div>
-                <div class="col-3">
-                    <div class="card">
-                        <h4 id="date-4"></h4>
+                <div class="col-2">
+                    <div class="card" id="date-3">
+                        <h4></h4>
                     </div>
                 </div>
-                <div class="col-3">
+                <div class="col-2">
+                    <div class="card" id="date-4">
+                        <h4></h4>
+                    </div>
+                </div>
+                <div class="col-2" id="date-5">
                     <div class="card">
-                        <h4 id="date-5"></h4>
+                        <h4></h4>
                     </div>
                 </div>
             </div>
         </main>
+        <!-- DayJS -->
+        <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js" integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
+        <!-- Bootstrap -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+        <!-- jQuery -->
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <!-- Script.js -->
         <script src="./assets/js/script.js"></script>
     </body>
 </html>
