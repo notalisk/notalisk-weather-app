@@ -9,8 +9,6 @@ $(document).ready(function () {
     var card5 = $("#date-5");
     
     var today = dayjs();
-
-    console.log(today);
     
     // When the search button is clicked:
     //  Save the search value to a variable
@@ -123,9 +121,6 @@ $(document).ready(function () {
     }
 
     // TODO:
-    // Add a function to prevent storing the same cities to local storage multiple times
-
-    // TODO:
     // add a function to list the searched city in recent cities immediately (instead of only after reload)
 
     // API Geo calling
@@ -160,17 +155,21 @@ $(document).ready(function () {
         console.log(data);
     }
 
+    // add our weather data to the page
     function renderWeatherCurrent(data) {
-        console.log(data);
-        console.log(data.weather[0].icon);
-        console.log(data.main.temp);
-        console.log(data.main.humidity);
-        console.log(data.wind.speed);
-
         var card0 = $("#date-0");
+        var card0Children = card0.children();
 
-        // add our weather data to the page
-        
+        // set date
+        card0Children[0].innerHTML = "Today (" + today.format("MMM D, YYYY") + ")";
+
+        // set icon
+        card0Children[1].src = "https://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x.png";
+
+        // set various other stats
+        card0Children[2].innerHTML = "Temperature: " + data.main.temp + "°F";
+        card0Children[3].innerHTML = "Humidity: " + data.main.humidity + "%";
+        card0Children[4].innerHTML = "Wind Speed: " + data.wind.speed + "mph";
 
         // make the card visible!
         card0.parent().parent().removeClass("visually-hidden");
