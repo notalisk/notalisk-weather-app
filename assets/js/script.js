@@ -207,5 +207,8 @@ $(document).ready(function () {
 
         // make the card visible!
         card0.parent().parent().removeClass("visually-hidden");
+
+        // render the name of the city too for good measure
+        $("#city-name")[0].innerHTML = city;
     }
 });
