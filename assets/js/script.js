@@ -1,13 +1,6 @@
 $(document).ready(function () {
     var openWeatherKey = "6531749f2d5c70a0ea2aa7d29fa546d7";
     
-    
-    var card1 = $("#date-1");
-    var card2 = $("#date-2");
-    var card3 = $("#date-3");
-    var card4 = $("#date-4");
-    var card5 = $("#date-5");
-    
     var today = dayjs();
     
     // When the search button is clicked:
@@ -147,15 +140,50 @@ $(document).ready(function () {
         .then(response => response.json())
         .then(response => {
             renderWeatherCurrent(response);
-            console.log("wow look at all this cool data weather we have for right now!");
         });
     }
 
+    // add the future weather data to the page
     function renderWeatherFiveDay(data) {
         console.log(data);
+
+        var futureWeather = $("#future-weather");
+        var cards = futureWeather.children();
+
+        // lets build a loop to save time (loops through cards)
+        for (let i = 0; i < cards.length; i++) {
+            // get elements
+            var h4 = cards[i].children[0].children[0];
+            var img = cards[i].children[0].children[1];
+            var temp = cards[i].children[0].children[2];
+            var hum = cards[i].children[0].children[3];
+            var wind = cards[i].children[0].children[4];
+
+            // set date
+            var date = today.add(i + 1, "day");
+
+            h4.innerHTML = date.format("MMM D, YYYY");
+
+            // get data for date
+            var dateData;
+            for (let x = 0; dayjs(data.list[x].dt).isBefore(date.unix()) && x < 39; x++) {
+                dateData = data.list[x];
+            }
+
+            console.log(dateData);
+
+            // set everything
+            img.src = "https://openweathermap.org/img/wn/" + dateData.weather[0].icon + "@2x.png";
+            temp.innerHTML = "Temperature: " + dateData.main.temp + "°F";
+            hum.innerHTML = "Humidity: " + dateData.main.humidity + "%";
+            wind.innerHTML = "Wind Speed: " + dateData.wind.speed + "mph";
+        }
+
+        // show the cards
+        futureWeather.removeClass("visually-hidden");
     }
 
-    // add our weather data to the page
+    // add the current weather data to the page
     function renderWeatherCurrent(data) {
         var card0 = $("#date-0");
         var card0Children = card0.children();
