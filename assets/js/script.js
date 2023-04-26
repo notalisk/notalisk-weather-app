@@ -45,8 +45,14 @@ $(document).ready(function () {
 
     listRecentCities();
 
+    // click functions for recent list
+    $(".dropdown-item").click(function() {
+        city = this.text;
+        citySearch();
+    });
+
+    // click function for search button
     $("#search-btn").click(function() {
-        console.log("search is running"); // delete
         city = $("#city-search").val();
 
         // check that city has a value
