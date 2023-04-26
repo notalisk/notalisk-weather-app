@@ -66,7 +66,7 @@ $(document).ready(function () {
     
     // Run the API call to get info about the city
     function citySearch() {
-        var searchUrl = "http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=1&appid=" + openWeatherKey;
+        var searchUrl = "https://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=1&appid=" + openWeatherKey;
         
         console.log("search (still) running...");
 
@@ -131,7 +131,7 @@ $(document).ready(function () {
     // function to send lat/lon to weather API and get back weather forecast
     function weatherSearch (thisCity) {
         
-        var searchUrlFiveDay = "http://api.openweathermap.org/data/2.5/forecast?lat=" + thisCity.lat + "&lon=" + thisCity.lon + "&appid=" + openWeatherKey + "&units=imperial";
+        var searchUrlFiveDay = "https://api.openweathermap.org/data/2.5/forecast?lat=" + thisCity.lat + "&lon=" + thisCity.lon + "&appid=" + openWeatherKey + "&units=imperial";
 
         fetch(searchUrlFiveDay)
         .then(response => response.json())
