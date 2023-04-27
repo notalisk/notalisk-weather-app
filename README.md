@@ -14,8 +14,10 @@ Some of the styling was done using Bootstrap (https://getbootstrap.com/)
 
 ## Screenshot
 
+![image of the weather app](https://user-images.githubusercontent.com/81662512/234742131-52dac64c-bc83-4e7c-9c81-80bef3e25e2e.png)
+
 ## Links
 
 Repository: https://github.com/notalisk/notalisk-weather-app
 
-Deployed Page:
+Deployed Page: https://notalisk.github.io/notalisk-weather-app
